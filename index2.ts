@@ -96,3 +96,43 @@ let 유정정보2 : NewUser = {
     email : 'ckdgus5262@gmail.com',
     adult : true
 }
+
+type 함수타입 = (a : string) => number
+
+// 함수 표현식
+let 함수 : 함수타입 = function (a){
+    return 10
+}
+type Member =  {name : string, plusOne : (a:number)=>number, changeName : ()=>void}
+let 회원정보 : Member= {
+    name : 'kim',
+    plusOne(a){
+        return a + 1
+    },
+    changeName : ()=>{
+        console.log('안녕')
+    }
+}
+console.log(회원정보.plusOne(3))
+console.log(회원정보.changeName())
+
+type C = (a: string) => string
+let cutZero : C = function(a){
+    let result = a.replace(/(^0+)/, ""); 
+    return result
+}
+type R = ( b : string) => number
+let removeDash : R = function(b){
+    let reuslt = b.replace(/-/g, "");
+    return parseFloat(reuslt)
+}
+
+type 함수타입1 = (a : string) => string
+type 함수타입2 = (a : string) => number
+
+function 만들함수2(a : string, b : 함수타입1 , c: 함수타입2){
+    let result = b(a)
+    let result2 = c(result)
+    return console.log(result2)
+}
+만들함수2('010-1111-2222', cutZero, removeDash)

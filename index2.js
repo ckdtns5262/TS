@@ -55,3 +55,32 @@ var 유정정보2 = {
     email: 'ckdgus5262@gmail.com',
     adult: true
 };
+// 함수 표현식
+var 함수 = function (a) {
+    return 10;
+};
+var 회원정보 = {
+    name: 'kim',
+    plusOne: function (a) {
+        return a + 1;
+    },
+    changeName: function () {
+        console.log('안녕');
+    }
+};
+console.log(회원정보.plusOne(3));
+console.log(회원정보.changeName());
+var cutZero = function (a) {
+    var result = a.replace(/(^0+)/, "");
+    return result;
+};
+var removeDash = function (b) {
+    var reuslt = b.replace(/-/g, "");
+    return parseFloat(reuslt);
+};
+function 만들함수2(a, b, c) {
+    var result = b(a);
+    var result2 = c(result);
+    return console.log(result2);
+}
+만들함수2('010-1111-2222', cutZero, removeDash);
